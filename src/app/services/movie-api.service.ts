@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MovieApiService {
-  private apiUrl = environment.ApiUrl;
   private accessToken = environment.AccessToken;
   constructor(private http: HttpClient) {}
 
@@ -16,8 +15,11 @@ export class MovieApiService {
       accept: 'application/json',
       Authorization: `Bearer ${this.accessToken}`,
     });
-    return this.http.get<any>(`${this.apiUrl}/movie/popular?page=${page}`, {
-      headers,
-    });
+    return this.http.get<any>(
+      `https://api.themoviedb.org/3/movie/popular?page=${page}`,
+      {
+        headers,
+      }
+    );
   }
 }
