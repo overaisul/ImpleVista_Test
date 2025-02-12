@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class MovieApiService {
   private apiUrl = environment.ApiUrl;
-  private apiKey = environment.ApiKey;
   private accessToken = environment.AccessToken;
   constructor(private http: HttpClient) {}
 
